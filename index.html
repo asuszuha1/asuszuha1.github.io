@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switcheroo Sandbox</title>
+    <style>
+            body {
+                background-image: url('jon.png');
+            }
+    </style>
+    <script src="switcheroo.js">
+    </script>
+    <script>
+            window.onload = function() {
+              var getJSON = function(url, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("get", url, true);
+                    xhr.responseType = "json";
+                    xhr.onload = function() {
+                      var status = xhr.status;
+                      if (status == 200) {
+                        callback(null, xhr.response);
+                      } else {
+                        callback(status);
+                      }
+                    };
+                    xhr.send();
+                };
+
+                getJSON('https://gist.githubusercontent.com/JonFriesen/c186adc6935a1b0bf9460895e612d2eb/raw/494a504457c6f8eb05b3aea73f20d285228424ae/users.json',
+                    function(err, data) {
+
+                    var userAction = function(selectedUser) {
+                       alert(selectedUser); 
+                    };
+
+                    var userData = data.map(function(user){
+                        return {
+                            category: 'user',
+                            name: user.first_name + ' ' + user.last_name,
+                            userObj: user,
+                            action: userAction
+                        };
+                    });
+
+                    this.Switcheroo = new Switcheroo({
+                        data: userData,
+                        keyBindings: {
+                            open: ['Control','Shift','F'],
+                            close: ['Escape']
+                        }
+                    });
+
+                }.bind(this));  
+            }
+    </script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+</body>
+</html>

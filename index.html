@@ -1,57 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Switcheroo Sandbox</title>
-    <style>
-    </style>
-    <script src="switcheroo.js">
-    </script>
-    <script>
-            window.onload = function() {
-              var getJSON = function(url, callback) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("get", url, true);
-                    xhr.responseType = "json";
-                    xhr.onload = function() {
-                      var status = xhr.status;
-                      if (status == 200) {
-                        callback(null, xhr.response);
-                      } else {
-                        callback(status);
-                      }
-                    };
-                    xhr.send();
-                };
-
-                getJSON('https://gist.githubusercontent.com/JonFriesen/c186adc6935a1b0bf9460895e612d2eb/raw/494a504457c6f8eb05b3aea73f20d285228424ae/users.json',
-                    function(err, data) {
-
-                    var userAction = function(selectedUser) {
-                       alert(selectedUser); 
-                    };
-
-                    var userData = data.map(function(user){
-                        return {
-                            category: 'user',
-                            name: user.first_name + ' ' + user.last_name,
-                            userObj: user,
-                            action: userAction
-                        };
-                    });
-
-                    this.Switcheroo = new Switcheroo({
-                        data: userData,
-                        keyBindings: {
-                            open: ['Control','Shift','F'],
-                            close: ['Escape']
-                        }
-                    });
-
-                }.bind(this));  
-            }
-    </script>
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-</body>
+  <head>
+    <title>My Anime Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Anime List</a></li>
+          <li><a href="#">News</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Welcome to My Anime Website</h1>
+      <p>Here you can find information about your favorite anime series, read reviews and get the latest news.</p>
+    </main>
+    <footer>
+      <p>Copyright © 2022 My Anime Website</p>
+    </footer>
+  </body>
 </html>

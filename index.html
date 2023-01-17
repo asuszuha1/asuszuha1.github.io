@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Anime Website</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Anime List</a></li>
-          <li><a href="#">News</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <h1>Welcome to My Anime Website</h1>
-      <p>Here you can find information about your favorite anime series, read reviews and get the latest news.</p>
-      
-      <p>Eps 1</p>
-      <iframe src="https://acefile.co/player/92283893" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH="640" HEIGHT="350" allowfullscreen="true"></iframe>
-      
-      <p>Eps 2</p>
-      <iframe src="https://acefile.co/player/92283893" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH="640" HEIGHT="350" allowfullscreen="true"></iframe>
-      
-    </main>
-    <footer>
-      <p>Copyright © 2022 My Anime Website</p>
-    </footer>
-  </body>
+<head>
+  <title>TV Show Episodes</title>
+</head>
+<body>
+  <h1>TV Show Episodes</h1>
+  <div id="episode-container">
+    <p id="episode-number">Episode 1</p>
+    <p id="episode-title">Episode Title</p>
+    <p id="episode-description">Episode Description</p>
+  </div>
+  <button id="next-button">Next Episode</button>
+  <script>
+    var episodes = [
+      {
+        number: 1,
+        title: "Episode 1 Title",
+        description: "Episode 1 Description"
+      },
+      {
+        number: 2,
+        title: "Episode 2 Title",
+        description: "Episode 2 Description"
+      },
+      // Add more episode objects here
+    ];
+    var currentEpisode = 0;
+    var episodeContainer = document.getElementById("episode-container");
+    var episodeNumber = document.getElementById("episode-number");
+    var episodeTitle = document.getElementById("episode-title");
+    var episodeDescription = document.getElementById("episode-description");
+    var nextButton = document.getElementById("next-button");
+    nextButton.addEventListener("click", function() {
+      if (currentEpisode < episodes.length - 1) {
+        currentEpisode++;
+        episodeNumber.innerHTML = "Episode " + episodes[currentEpisode].number;
+        episodeTitle.innerHTML = episodes[currentEpisode].title;
+        episodeDescription.innerHTML = episodes[currentEpisode].description;
+      }
+    });
+  </script>
+</body>
 </html>

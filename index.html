@@ -2,8 +2,19 @@
 <html>
 <head>
   <title>TV Show Episodes</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Anime List</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <h1>TV Show Episodes</h1>
   <div id="episode-container">
     <p id="episode-number">Episode 1</p>
@@ -16,7 +27,7 @@
       {
         number: 1,
         title: "Episode 1 Title",
-        description: "Episode 1 Description"
+        description: "<iframe src="https://acefile.co/player/92283893" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH="640" HEIGHT="350" allowfullscreen="true"></iframe>"
       },
       {
         number: 2,
@@ -40,5 +51,9 @@
       }
     });
   </script>
+
+  <footer>
+  <p>Copyright © 2022 My Anime Website</p>
+  </footer>
 </body>
 </html>
